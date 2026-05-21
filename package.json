@@ -1,0 +1,33 @@
+{
+  "name": "earnapp-droid-cli",
+  "version": "0.1.0",
+  "description": "Node.js CLI port scaffold for EarnApp Android flow.",
+  "license": "MIT",
+  "type": "commonjs",
+  "bin": {
+    "earndroid": "./src/earndroid.js"
+  },
+  "scripts": {
+    "check": "node --check src/earndroid.js && node --check scripts/build.js",
+    "start": "node src/earndroid.js",
+    "build": "node scripts/build.js",
+    "build:arm64": "PKG_TARGET=node18-linux-arm64 node scripts/build.js",
+    "build:amd64": "PKG_TARGET=node18-linux-x64 node scripts/build.js",
+    "build:release": "BUILD_RELEASE=1 node scripts/build.js"
+  },
+  "pkg": {
+    "scripts": [
+      "dist/earndroid.obf.js"
+    ],
+    "targets": [
+      "node18-linux-x64",
+      "node18-linux-arm64"
+    ],
+    "outputPath": "build"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^4.1.1",
+    "pkg": "^5.8.1"
+  }
+}
+
